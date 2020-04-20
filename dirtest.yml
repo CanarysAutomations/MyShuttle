@@ -9,4 +9,4 @@ steps:
   - checkout: none
   - script: |
       cd ..
-      pwd
+      ls
