@@ -1,0 +1,10 @@
+
+trigger:
+  - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: none
+  - script: echo $Build.ArtifactStagingDirectory
