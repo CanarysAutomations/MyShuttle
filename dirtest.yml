@@ -7,4 +7,6 @@ pool:
 
 steps:
   - checkout: none
-  - bash: ls
+  - script: |
+      pwd
+      ls
