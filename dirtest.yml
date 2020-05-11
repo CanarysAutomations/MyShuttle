@@ -14,8 +14,8 @@ steps:
       ver=$((ver+1))
       echo "##vso[task.setvariable variable=version"ver]
     env:
-      ver: $version 
+      ver: $(version) 
   - bash: |
       echo $ver
     env:
-      ver: $version
+      ver: $(version)
