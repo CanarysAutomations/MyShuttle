@@ -4,6 +4,8 @@ trigger:
 
 variables:
 - group: version_group
+- name: ver1
+  value: 2
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -14,8 +16,8 @@ steps:
       ver=$((ver+1))
       echo "##vso[task.setvariable variable=version"ver]
     env:
-      ver: $(version) 
+      ver: $(ver1) 
   - bash: |
       echo $ver
     env:
-      ver: $(version)
+      ver: $(ver1)
