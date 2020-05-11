@@ -2,11 +2,20 @@
 trigger:
   - master
 
+variables:
+- group: version_group
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
   - checkout: none
-  - script: |
-      cd ..
-      ls
+  - bash: |
+      ver=$((ver+1))
+      echo "##vso[task.setvariable variable=version"ver]
+    env:
+      ver: $version 
+  - bash: |
+      echo $ver
+    env:
+      ver: $version
