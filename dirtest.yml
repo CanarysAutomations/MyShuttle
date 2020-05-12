@@ -6,7 +6,15 @@ steps:
 - task: Maven@3
   displayName: 'Maven pom.xml'
   inputs:
+    mavenPomFile: 'MS/pom.xml'
     options: '-DskipITs --settings ./MS/maven/settings.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
