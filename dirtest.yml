@@ -6,7 +6,7 @@ steps:
 - task: Maven@3
   displayName: 'Maven pom.xml'
   inputs:
-    options: '-DskipITs --settings ./maven/settings.xml'
+    options: '-DskipITs --settings ./MS/maven/settings.xml'
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
