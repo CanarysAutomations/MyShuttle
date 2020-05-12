@@ -1,43 +1,21 @@
-
 trigger:
   - master
-
-variables:
-- group: version_group
-- name: ver1
-  value: 2
 pool:
   vmImage: 'ubuntu-latest'
-jobs:
-- job: Build
-  steps:
-  - task: Maven@3
-    displayName: 'Maven pom.xml'
-    inputs:
-      options: '-DskipITs --settings ./maven/settings.xml'
-  - task: CopyFiles@2
-    displayName: 'Copy Files'
-    inputs:
-      SourceFolder: '$(build.sourcesdirectory)'
-      Contents: |
-        **/target/*.war
-        *.sql
-      TargetFolder: '$(build.artifactstagingdirectory)'
-
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact'
-    inputs:
-     PathtoPublish: '$(build.artifactstagingdirectory)'
-
-- job: bashScript
-  steps:
-  - checkout: none
-  - bash: |
-      ver=$((ver+1))
-      echo "##vso[task.setvariable variable=version"$ver]
-    env:
-      ver: $(ver1) 
-  - bash: |
-      echo $ver
-    env:
-      ver: $(ver1)
+steps:
+- task: Maven@3
+  displayName: 'Maven pom.xml'
+  inputs:
+    options: '-DskipITs --settings ./maven/settings.xml'
+- task: CopyFiles@2
+  displayName: 'Copy Files'
+  inputs:
+    SourceFolder: '$(build.sourcesdirectory)'
+    Contents: |
+      **/target/*.war
+      *.sql
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
