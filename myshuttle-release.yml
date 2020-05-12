@@ -1,13 +1,17 @@
-resources:
-  pipelines: 'MyShuttle'
 trigger: none
+resources:
+  pipelines: 
+  - pipeline: 'BuildPipeline'
+    source: 'MyShuttle'
+    trigger: true
 variables:
   count: $[counter('cnt',0)]
+  
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: echo Hello, world!
-  displayName: 'Run a one-line script'
+- bash: echo $cnt
+  displayName: 'Echo counter'
   env:
     cnt: $(count)
