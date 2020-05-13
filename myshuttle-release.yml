@@ -16,4 +16,4 @@ steps:
   displayName: 'Echo counter'
   env:
     cnt: $(count)
-    tdy: $(Date:yyyy)
+    tdy: $(Month)
