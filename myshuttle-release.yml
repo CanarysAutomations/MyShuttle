@@ -1,3 +1,4 @@
+name: $(Date:yyyy).$(Month).$(count)
 trigger: none
 resources:
   pipelines: 
