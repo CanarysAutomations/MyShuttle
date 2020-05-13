@@ -12,7 +12,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: echo $cnt
+- bash: echo $tdy
   displayName: 'Echo counter'
   env:
     cnt: $(count)
+    tdy: $(Date:yyyy)
