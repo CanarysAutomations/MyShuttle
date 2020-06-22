@@ -1,4 +1,4 @@
-name: $(Date:yyyy).$(Month).$(count)
+name: $(Date:yyyy).$(Month).$(Rev:.r)
 trigger: none
 resources:
   pipelines: 
