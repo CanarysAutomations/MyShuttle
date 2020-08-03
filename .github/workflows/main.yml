@@ -5,33 +5,43 @@ on:
   push:
     branches: 
       - master
+      
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: BUILD WITH MAVEN
     steps:
+    
     - name: Checkout
       uses: actions/checkout@v1
+    
     - name: Setup Java JDK
       uses: actions/setup-java@v1.3.0
       with:
        java-version: 1.8
        java-package: jdk
+       
     - name: Build App
       run: mvn -f pom.xml clean package
+      
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
        name: myshuttle
        path: target/myshuttle.war
+
+#=========================================================================================================
+
   deploy:
     runs-on: [self-hosted, production]
     needs: build
+    name: DEPLOY TO AZURE VM
     steps:
       - name: Download Artifacts
         uses: actions/download-artifact@v1.0.0
         with:
          name: myshuttle
-      - name: Deploy to Local Machine
+      - name: Deploy to Tomcat
         working-directory: myshuttle
         run:
          sudo curl -v -u ${{secrets.TOMCAT_USER}}:${{secrets.TOMCAT_PASSWORD}} -T myshuttle.war "http://localhost:${{secrets.TOMCAT_PORT}}/manager/text/deploy?path=/myshuttle&update=true"
