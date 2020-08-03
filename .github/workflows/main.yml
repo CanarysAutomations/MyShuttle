@@ -24,3 +24,16 @@ jobs:
       with:
        name: myshuttle
        path: target/myshuttle.war
+  deploy:
+    runs-on: [self-hosted, production]
+    needs: build
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v1.0.0
+        with:
+         name: myshuttle
+      - name: Deploy to Local Machine
+        working-directory: myshuttle
+        run:
+         sudo curl -v -u azureuser:Canarys@123 -T myshuttle.war "http://localhost:8080/manager/text/deploy?path=/myshuttle&update=true"
+     
