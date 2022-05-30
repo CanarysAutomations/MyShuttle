@@ -15,14 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     
-    
-    - name: Setup Java JDK
-      uses: actions/setup-java@v3.3.0
-      with:
-        java-version: 11
-        distribution: adopt
-        cache: maven
-
+ 
     - name: Build App
       run: mvn -f pom.xml -DskipITs package
     
