@@ -1,5 +1,5 @@
 
-name: MyShuttle-CICD
+name: MyShuttle.Maven
 
 on: 
   push:
