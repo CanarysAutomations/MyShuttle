@@ -15,16 +15,15 @@ import com.microsoft.example.models.*;
  */
  
  /**
- Comment added by Sachin
  **/
  
 public class DataAccess
 {
 	// Some database-specific details we'll need
 	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://db:3306/MyShuttleDb";
-	private static final String DB_USER = "user";
-	private static final String DB_PASS = "password";
+	private static final String DB_URL = "jdbc:mysql://fooplayground.mysql.database.azure.com:3306/alm";
+	private static final String DB_USER = "fooadmin@fooplayground";
+	private static final String DB_PASS = "P2ssw0rd@123";
 	
 	private static Connection theConnection;
 	static {
