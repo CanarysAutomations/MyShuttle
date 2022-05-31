@@ -47,7 +47,7 @@ public class FaresTest {
       5);
     
     assertEquals(1, f.getId());
-    assertEquals(0, f.getEmployeeID());
+    assertEquals(1, f.getEmployeeID());
 
     assertEquals(1000, f.getFare());
     assertEquals(10.00f, f.getFareInDollars(), 0.1f);
