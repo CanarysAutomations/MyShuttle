@@ -6,6 +6,10 @@
   <artifactId>myshuttle</artifactId>
   <version>0.0.1</version>
   <packaging>war</packaging>
+  <properties>
+      <sonar.organization>canarysautomations</sonar.organization>
+      <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  </properties>
   <build>
   	<finalName>myshuttle</finalName>
     <plugins>
