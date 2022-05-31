@@ -7,6 +7,6 @@ public class SimpleTest {
   @Test
   public void evaluatesExpression() {
     int sum = 1 + 2 + 3;
-    assertEquals(7, sum);
+    assertEquals(6, sum);
   }
 }
