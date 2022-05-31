@@ -31,16 +31,16 @@ jobs:
       with:
         files: target/surefire-reports/TEST-*.xml  
 
-    - name: Generate a table of test results
-      run: |
-        echo "| Test Result :test_tube: | Passed :green_circle: | Failed :x: | Skipped | Time Duration :alarm_clock: |" >> $GITHUB_STEP_SUMMARY
-        echo "| ----------- | ------ | ------ | ------- | ------------- |" >> $GITHUB_STEP_SUMMARY
-        echo "| :green_circle: Pass | 122 | 0 | 3 | 12m 3s |" >> $GITHUB_STEP_SUMMARY
-        echo "| :red_circle: Failed | 121 | 2 | 3 | 10m 3s |" >> $GITHUB_STEP_SUMMARY
-        echo "| :green_circle: Pass  | 4 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
-        echo "| :white_circle: Pass  | 9 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
-        echo "| :yellow_circle: Pass  | 7 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
-        echo "| :black_circle: Pass  | 6 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
+    # - name: Generate a table of test results
+    #   run: |
+    #     echo "| Test Result :test_tube: | Passed :green_circle: | Failed :x: | Skipped | Time Duration :alarm_clock: |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| ----------- | ------ | ------ | ------- | ------------- |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :green_circle: Pass | 122 | 0 | 3 | 12m 3s |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :red_circle: Failed | 121 | 2 | 3 | 10m 3s |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :green_circle: Pass  | 4 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :white_circle: Pass  | 9 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :yellow_circle: Pass  | 7 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
+    #     echo "| :black_circle: Pass  | 6 | 12 | 3 | 9m 4s |" >> $GITHUB_STEP_SUMMARY
   
   code-analysis:
      name: 🔆 Code Analysis
