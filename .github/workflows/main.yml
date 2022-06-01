@@ -24,7 +24,7 @@ jobs:
        name: myshuttle
        path: target/myshuttle.war
 
-        # Publishes the unit test results
+      # Publishes the unit test results
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
