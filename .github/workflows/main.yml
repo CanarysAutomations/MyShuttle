@@ -100,11 +100,11 @@ jobs:
     needs: [build, code-analysis]
     name: Azure Web App
     
-  #  env:
-   #   AZURE_WEBAPP_NAME: myshuttlejava
-    #  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}
-     # JAVA_VERSION: '1.8'                
-    #  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+    env:
+     AZURE_WEBAPP_NAME: myshuttlejava
+     AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}
+     JAVA_VERSION: '1.8'                
+     AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
     
     steps:
       - name: Download Artifacts
@@ -116,5 +116,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with: 
           app-name: myshuttlejava
-          package: .
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/target/*.war'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
